@@ -1,4 +1,4 @@
 FTguide
 =======
 
-Facilitation Tool guide
+FaciliTation guide
