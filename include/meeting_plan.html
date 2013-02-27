@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+		<title>FTguide</title>
+		<meta charset="utf-8" /> 	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		
+		<link rel="shortcut icon" href="../image/icon.png">
+		<link rel="apple-touch-icon" href="../image/icon.png"> 
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script>
+			function input_agenda(){
+				var tmp = $('#agenda').val();
+				if (tmp == "") {
+					$('#agenda').val(tmp + "- ");	   
+				}
+				$('#agenda').keyup( function(event){
+					if (event.keyCode == 13) {   
+						var tmp = $('#agenda').val();
+						$('#agenda').val(tmp + "- ");	                         
+					}
+				});
+			}
+			function end_agenda(){
+				var tmp = $('#agenda').val(); 
+				alert(tmp);
+			}
+		</script>
+	</head> 
+
+	<body>
+		<div data-role="page">
+			<div data-role="header">
+				<h1>Facilitation Guide</h1>		
+				<a href="#" data-icon="arrow-l" data-rel="back">이전</a>
+				<a href="meeting_progress.html" data-icon="arrow-r" data-iconpos="right">다음</a>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" class="ui-btn-active">기획</a></li>
+						<li><a href="#">회의 진행</a></li>
+						<li><a href="#">의사 결정</a></li>
+						<li><a href="#">결과 정리</a></li>
+					</ul>
+				</div>
+			</div>  
+			<div data-role="content">	
+				<div data-role="collapsible"  data-collapsed="false">
+					<h1>5P</h1>
+					<div data-role="fieldcontain">
+						<label for="purpose">Purpose (회의 목적)</label><p>
+						<input id="purpose" type="text" name="purpose" /><p>			
+						<label for="participants">Participants (참가자)</label><p>
+						<input id="participants" type="text" name="participants" /><p>
+						<label for="process">Process (프로세스)</label><p>
+						<textarea  id="process" name="process" onfocus="input_process()"></textarea><p>
+						<label for="product">Product (예상 결과물)</label><p>
+						<textarea  id="product" name="product"></textarea><p>			
+						<label for="issues">probable Issues (예상되는 이슈)</label><p>
+						<textarea  id="issues" name="issues"></textarea><p>
+					</div>
+				</div>
+				<div data-role="collapsible"  data-collapsed="false">
+					<h1>Agenda (회의 진행 순서)</h1>
+					<div data-role="fieldcontain">
+						<textarea  id="agenda" name="agenda" onfocus="input_agenda()"></textarea><p>
+						<input type="button" value="완료" onClick="end_agenda()">
+					</div>
+				</div>
+				<div data-role="collapsible"  data-collapsed="false">
+					<h1>Logistics (좌석배치, 기록방법, 준비 물품 등)</h1>
+					<div data-role="fieldcontain">
+						<textarea  id="logistics" name="logistics"></textarea><p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
